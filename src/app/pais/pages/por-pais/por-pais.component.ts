@@ -13,6 +13,8 @@ export class PorPaisComponent implements OnInit {
   hayError: boolean = false;
   paises: Country[] = [];
 
+  paisesSugeridos: Country[] = [];
+
   constructor( private paisService: PaisService ) { }
 
   ngOnInit(): void {
@@ -35,6 +37,8 @@ export class PorPaisComponent implements OnInit {
 
   sugerencias( termino: string ) {
     this.hayError = false;
+
+    this.paisService.buscarPais(termino).subscribe( paises => this.paisesSugeridos = paises.splice(0,3));
   }
 
 }
