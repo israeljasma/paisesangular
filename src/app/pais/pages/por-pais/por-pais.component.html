@@ -8,9 +8,12 @@
         </div>
     </div>
 
-    <ul class="list-group">
+    <ul *ngIf="mostrarSugerencias" class="list-group">
         <li *ngFor="let pais of paisesSugeridos" class="list-group-item list-group-item-action">
-            nombre pais
+            <a [routerLink]="[ '/pais', pais.cca2 ]"> {{ pais.name.common }} </a>
+        </li>
+        <li class="list-group-item list-group-item-action" (click)="buscarSugerido( termino )">
+            Buscar "{{ termino }}"
         </li>
     </ul>
 

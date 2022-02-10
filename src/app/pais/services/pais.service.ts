@@ -13,7 +13,7 @@ export class PaisService {
   constructor( private http: HttpClient) { }
 
   get httpParams() {
-    return new HttpParams().set('fields', 'name,capital,flags,pupulation,cca2');
+    return new HttpParams().set('fields', 'name,capital,flags,population,cca2');
   }
 
   buscarPais(termino: string): Observable<Country[]>{
@@ -39,7 +39,7 @@ export class PaisService {
 
   buscarRegion(termino: string): Observable<Country[]>{
 
-    const params = new HttpParams().set('fields', 'name,capital,flags,pupulation,cca2');
+    const params = new HttpParams().set('fields', 'name,capital,flags,population,cca2');
 
     const url = `${ this.apiUrl }/region/${ termino }?`;
 
